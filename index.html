@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Arshath Hameed K — AI/ML Engineer</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&family=DM+Mono:wght@400;500&family=Geist:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=DM+Mono:wght@400;500&family=Geist:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #0f1117;
@@ -16,148 +16,206 @@
   --muted: #7a7a9a;
   --accent: #6366f1;
   --accent2: #818cf8;
-  --accent-bg: rgba(99,102,241,0.12);
-  --accent-border: rgba(99,102,241,0.3);
+  --accent-bg: rgba(99,102,241,0.1);
+  --accent-border: rgba(99,102,241,0.28);
+  --green: #34d399;
+  --green-bg: rgba(52,211,153,0.1);
+  --green-border: rgba(52,211,153,0.28);
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body { background: var(--bg); color: var(--text); font-family: 'Geist', sans-serif; font-size: 16px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
-
+ 
+/* NAV */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 1.25rem 4rem;
-  background: rgba(15,17,23,0.9); backdrop-filter: blur(12px);
+  padding: 1.1rem 4rem;
+  background: rgba(15,17,23,0.92); backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
 }
-.nav-logo { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 400; color: var(--text); }
-.nav-links { display: flex; gap: 2.5rem; }
-.nav-links a { color: var(--muted); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+.nav-logo { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 400; color: var(--text); }
+.nav-right { display: flex; align-items: center; gap: 2rem; }
+.nav-links { display: flex; gap: 2rem; }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
 .nav-links a:hover { color: var(--accent2); }
-
-.hero { min-height: 100vh; display: flex; align-items: center; padding: 8rem 4rem 5rem; border-bottom: 1px solid var(--border); }
-.hero-inner { max-width: 1000px; margin: 0 auto; width: 100%; }
-.hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 2.5rem; }
-h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(3.5rem, 7vw, 6.5rem); line-height: 1.02; letter-spacing: -0.02em; margin-bottom: 2rem; color: var(--text); }
+.nav-resume {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 0.45rem 1rem; border-radius: 4px;
+  background: var(--accent-bg); border: 1px solid var(--accent-border);
+  color: var(--accent2); font-family: 'DM Mono', monospace;
+  font-size: 0.72rem; text-decoration: none; letter-spacing: 0.04em;
+  transition: all 0.18s;
+}
+.nav-resume:hover { background: rgba(99,102,241,0.2); }
+ 
+/* HERO */
+.hero { min-height: 100vh; display: flex; align-items: center; padding: 8rem 4rem 5rem; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
+.hero::before {
+  content: ''; position: absolute; top: -10%; right: -5%;
+  width: 600px; height: 600px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(99,102,241,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-inner { max-width: 1000px; margin: 0 auto; width: 100%; position: relative; }
+.hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 2.5rem; display: flex; align-items: center; gap: 10px; }
+.status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); display: inline-block; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(3.2rem, 6.5vw, 6rem); line-height: 1.02; letter-spacing: -0.02em; margin-bottom: 2rem; color: var(--text); }
 h1 em { font-style: italic; color: var(--accent2); }
-.hero-sub { font-size: 1.05rem; color: var(--muted); max-width: 520px; line-height: 1.8; margin-bottom: 3rem; font-weight: 300; }
+.hero-sub { font-size: 1rem; color: var(--muted); max-width: 520px; line-height: 1.85; margin-bottom: 3rem; font-weight: 300; }
 .hero-sub strong { color: var(--text); font-weight: 400; }
 .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
-.btn { display: inline-flex; align-items: center; gap: 8px; padding: 0.7rem 1.4rem; border-radius: 4px; font-size: 0.82rem; font-weight: 400; text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; transition: all 0.18s; cursor: pointer; border: none; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 0.7rem 1.4rem; border-radius: 4px; font-size: 0.82rem; font-weight: 400; text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; transition: all 0.18s; cursor: pointer; border: none; font-family: inherit; }
 .btn-primary { background: var(--accent); color: #fff; }
-.btn-primary:hover { background: var(--accent2); }
+.btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
 .btn-ghost { background: transparent; color: var(--muted); border: 1px solid var(--border2); }
 .btn-ghost:hover { color: var(--text); border-color: var(--accent2); }
-.hero-stats { display: flex; gap: 4rem; margin-top: 5rem; padding-top: 3rem; border-top: 1px solid var(--border); }
+.hero-stats { display: flex; gap: 4rem; margin-top: 5rem; padding-top: 3rem; border-top: 1px solid var(--border); flex-wrap: wrap; }
 .stat-num { font-family: 'Fraunces', serif; font-size: 2.5rem; font-weight: 300; color: var(--accent2); line-height: 1; }
-.stat-label { font-size: 0.72rem; color: var(--muted); margin-top: 6px; letter-spacing: 0.04em; text-transform: uppercase; }
-
-section { padding: 7rem 4rem; border-bottom: 1px solid var(--border); }
+.stat-label { font-size: 0.7rem; color: var(--muted); margin-top: 6px; letter-spacing: 0.05em; text-transform: uppercase; }
+ 
+/* SECTIONS */
+section { padding: 6rem 4rem; border-bottom: 1px solid var(--border); }
 .section-inner { max-width: 1000px; margin: 0 auto; }
-.section-header { display: flex; align-items: baseline; gap: 2rem; margin-bottom: 4rem; }
-.section-num { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--accent); }
-h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(1.8rem, 3vw, 2.5rem); letter-spacing: -0.01em; color: var(--text); }
-
+.section-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 3.5rem; }
+.section-num { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--accent); }
+h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(1.8rem, 3vw, 2.4rem); letter-spacing: -0.01em; color: var(--text); }
+ 
+/* CURRENTLY LEARNING */
+.learning-banner {
+  background: var(--green-bg); border: 1px solid var(--green-border);
+  border-radius: 8px; padding: 1.75rem 2rem;
+  display: flex; align-items: flex-start; gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+.learning-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+.learning-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--green); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.4rem; }
+.learning-title { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 400; color: var(--text); margin-bottom: 0.5rem; }
+.learning-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.7; }
+.learning-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.85rem; }
+.learning-tag { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--green); padding: 2px 10px; border: 1px solid var(--green-border); border-radius: 3px; background: var(--green-bg); }
+ 
+.learning-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+.learning-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; }
+.lc-status { font-family: 'DM Mono', monospace; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+.lc-status.active { color: var(--green); }
+.lc-status.next { color: var(--accent2); }
+.lc-name { font-size: 0.9rem; color: var(--text); font-weight: 400; margin-bottom: 0.35rem; }
+.lc-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
+ 
+/* EXPERIENCE */
 .exp-item { padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
 .exp-item:last-child { border-bottom: none; }
 .exp-top { display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start; margin-bottom: 1.25rem; }
-.exp-role { font-family: 'Fraunces', serif; font-size: 1.35rem; font-weight: 400; line-height: 1.2; color: var(--text); }
-.exp-company { font-size: 0.85rem; color: var(--accent2); margin-top: 4px; font-weight: 500; }
-.exp-date { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--muted); white-space: nowrap; padding-top: 6px; }
+.exp-role { font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 400; line-height: 1.2; color: var(--text); }
+.exp-company { font-size: 0.85rem; color: var(--accent2); margin-top: 4px; }
+.exp-date { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--muted); white-space: nowrap; padding-top: 6px; }
 .exp-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
-.tag { font-family: 'DM Mono', monospace; font-size: 0.68rem; padding: 3px 10px; border-radius: 3px; border: 1px solid var(--accent-border); color: var(--accent2); background: var(--accent-bg); }
+.tag { font-family: 'DM Mono', monospace; font-size: 0.65rem; padding: 3px 10px; border-radius: 3px; border: 1px solid var(--accent-border); color: var(--accent2); background: var(--accent-bg); }
 .exp-bullets { list-style: none; }
-.exp-bullets li { font-size: 0.9rem; color: var(--muted); line-height: 1.75; padding: 5px 0 5px 1.25rem; position: relative; }
+.exp-bullets li { font-size: 0.875rem; color: var(--muted); line-height: 1.75; padding: 4px 0 4px 1.25rem; position: relative; }
 .exp-bullets li::before { content: '–'; position: absolute; left: 0; color: var(--accent); }
-
-.proj-list { display: flex; flex-direction: column; }
-.proj-item { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; padding: 2.5rem 0; border-bottom: 1px solid var(--border); align-items: start; }
+ 
+/* PROJECTS */
+.proj-item { display: grid; grid-template-columns: 200px 1fr; gap: 3rem; padding: 2.5rem 0; border-bottom: 1px solid var(--border); align-items: start; }
 .proj-item:last-child { border-bottom: none; }
-.proj-num { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--accent); margin-bottom: 0.75rem; }
-.proj-name { font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 400; line-height: 1.3; color: var(--text); }
-.proj-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+.proj-num { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--accent); margin-bottom: 0.6rem; }
+.proj-name { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 400; line-height: 1.3; color: var(--text); }
+.proj-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
 .proj-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
-.proj-tag { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--accent2); padding: 2px 8px; border: 1px solid var(--accent-border); border-radius: 3px; background: var(--accent-bg); }
-
-.patent-block { border: 1px solid var(--accent-border); border-radius: 8px; padding: 3rem; background: var(--bg2); }
-.patent-filed { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--accent2); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem; }
-.patent-title { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 300; line-height: 1.35; margin-bottom: 0.75rem; max-width: 680px; color: var(--text); }
-.patent-inventors { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--muted); margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
-.patent-section { margin-bottom: 2.5rem; }
-.patent-section-title { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--accent2); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; }
-.patent-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
-.patent-modules { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
-.patent-module { background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; padding: 1rem; }
-.patent-module-name { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--accent2); margin-bottom: 0.4rem; }
-.patent-module-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
-.claims-list { display: flex; flex-direction: column; gap: 0.75rem; }
-.claim { display: flex; gap: 1rem; align-items: flex-start; padding: 0.75rem 1rem; background: var(--bg3); border-radius: 4px; border: 1px solid var(--border); }
-.claim-num { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--accent); flex-shrink: 0; padding-top: 2px; }
-.claim-text { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
-
+.proj-tag { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--accent2); padding: 2px 8px; border: 1px solid var(--accent-border); border-radius: 3px; background: var(--accent-bg); }
+ 
+/* PATENT */
+.patent-block { border: 1px solid var(--accent-border); border-radius: 8px; padding: 2.5rem; background: var(--bg2); }
+.patent-filed { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--accent2); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.25rem; }
+.patent-title { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 300; line-height: 1.35; margin-bottom: 0.65rem; color: var(--text); max-width: 680px; }
+.patent-inventors { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--muted); margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+.patent-section { margin-bottom: 2rem; }
+.patent-section-title { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--accent2); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; }
+.patent-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.8; margin-bottom: 0.85rem; }
+.patent-modules { display: grid; grid-template-columns: repeat(auto-fit, minmax(195px, 1fr)); gap: 0.85rem; }
+.patent-module { background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; padding: 0.9rem; }
+.patent-module-name { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--accent2); margin-bottom: 0.35rem; }
+.patent-module-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
+.claims-list { display: flex; flex-direction: column; gap: 0.65rem; }
+.claim { display: flex; gap: 1rem; padding: 0.75rem 1rem; background: var(--bg3); border-radius: 4px; border: 1px solid var(--border); }
+.claim-num { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--accent); flex-shrink: 0; padding-top: 2px; }
+.claim-text { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+ 
 /* CERTS */
-.certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+.certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.25rem; }
 .cert-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; transition: border-color 0.2s; }
 .cert-card:hover { border-color: var(--accent-border); }
-.cert-card-header { padding: 1.5rem; cursor: pointer; }
-.cert-issuer { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--accent2); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.6rem; }
-.cert-name { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 400; line-height: 1.35; margin-bottom: 0.5rem; color: var(--text); }
-.cert-meta { font-size: 0.78rem; color: var(--muted); }
-.cert-toggle { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--accent); margin-top: 0.75rem; cursor: pointer; display: inline-block; }
-.cert-body { display: none; border-top: 1px solid var(--border); padding: 1.25rem 1.5rem; background: var(--bg3); }
+.cert-card-header { padding: 1.4rem; cursor: pointer; }
+.cert-issuer { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--accent2); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem; }
+.cert-name { font-family: 'Fraunces', serif; font-size: 0.98rem; font-weight: 400; line-height: 1.3; margin-bottom: 0.4rem; color: var(--text); }
+.cert-meta { font-size: 0.75rem; color: var(--muted); }
+.cert-toggle { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--accent); margin-top: 0.65rem; display: inline-block; }
+.cert-body { display: none; border-top: 1px solid var(--border); padding: 1.1rem 1.4rem; background: var(--bg3); }
 .cert-card.open .cert-body { display: block; }
 .cert-card.open .cert-toggle::before { content: '▲ '; }
 .cert-toggle::before { content: '▼ '; }
-.cert-detail-row { margin-bottom: 0.85rem; }
-.cert-detail-label { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 3px; }
-.cert-detail-value { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--text); word-break: break-all; }
-.cert-btn { display: inline-flex; align-items: center; gap: 6px; margin-top: 0.75rem; padding: 0.5rem 1rem; background: var(--accent-bg); border: 1px solid var(--accent-border); border-radius: 4px; color: var(--accent2); font-family: 'DM Mono', monospace; font-size: 0.68rem; text-decoration: none; cursor: pointer; transition: background 0.18s; }
+.cert-detail-row { margin-bottom: 0.75rem; }
+.cert-detail-label { font-family: 'DM Mono', monospace; font-size: 0.58rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 3px; }
+.cert-detail-value { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--text); word-break: break-all; }
+.cert-btn { display: inline-flex; align-items: center; gap: 6px; margin-top: 0.65rem; padding: 0.45rem 0.9rem; background: var(--accent-bg); border: 1px solid var(--accent-border); border-radius: 4px; color: var(--accent2); font-family: 'DM Mono', monospace; font-size: 0.65rem; cursor: pointer; transition: background 0.18s; border: 1px solid var(--accent-border); }
 .cert-btn:hover { background: rgba(99,102,241,0.2); }
-
+ 
 /* CERT MODAL */
-.cert-modal { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.85); align-items: center; justify-content: center; padding: 2rem; }
+.cert-modal { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.92); align-items: center; justify-content: center; padding: 1.5rem; }
 .cert-modal.show { display: flex; }
-.cert-modal-inner { background: var(--bg2); border: 1px solid var(--border2); border-radius: 12px; max-width: 800px; width: 100%; max-height: 90vh; display: flex; flex-direction: column; overflow: hidden; }
-.cert-modal-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); }
-.cert-modal-title { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--accent2); }
-.cert-modal-close { background: none; border: none; color: var(--muted); font-size: 1.25rem; cursor: pointer; padding: 4px 8px; border-radius: 4px; transition: color 0.2s; }
+.cert-modal-inner { background: var(--bg2); border: 1px solid var(--border2); border-radius: 12px; width: min(95vw, 960px); height: min(92vh, 800px); display: flex; flex-direction: column; overflow: hidden; }
+.cert-modal-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); flex-shrink: 0; }
+.cert-modal-title { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--accent2); }
+.cert-modal-close { background: none; border: none; color: var(--muted); font-size: 1.2rem; cursor: pointer; padding: 4px 8px; border-radius: 4px; }
 .cert-modal-close:hover { color: var(--text); }
-.cert-modal-body { flex: 1; overflow-y: auto; padding: 1.5rem; display: flex; align-items: center; justify-content: center; }
-.cert-modal-body img { max-width: 100%; border-radius: 6px; }
-.cert-modal-info { padding: 1rem 1.5rem; border-top: 1px solid var(--border); font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--muted); }
-
-.skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3rem; }
-.skill-group-title { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--accent2); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
-.skill-list { display: flex; flex-direction: column; gap: 0.5rem; }
-.skill-item { font-size: 0.875rem; color: var(--muted); }
-
-.contact-title { font-family: 'Fraunces', serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 300; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem; color: var(--text); }
+.cert-modal-body { flex: 1; overflow-y: auto; padding: 2rem; display: flex; align-items: flex-start; justify-content: center; background: #111; }
+.cert-modal-body img { width: 100%; height: auto; border-radius: 8px; display: block; box-shadow: 0 8px 40px rgba(0,0,0,0.6); }
+.cert-modal-info { padding: 0.85rem 1.5rem; border-top: 1px solid var(--border); font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--muted); flex-shrink: 0; }
+ 
+/* EDUCATION */
+.edu-grid { display: flex; flex-direction: column; gap: 0; }
+.edu-item { display: grid; grid-template-columns: 1fr auto; gap: 1rem; padding: 1.75rem 0; border-bottom: 1px solid var(--border); align-items: start; }
+.edu-item:last-child { border-bottom: none; }
+.edu-degree { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 400; color: var(--text); margin-bottom: 3px; }
+.edu-school { font-size: 0.85rem; color: var(--accent2); }
+.edu-detail { font-size: 0.78rem; color: var(--muted); margin-top: 3px; }
+.edu-date { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--muted); white-space: nowrap; }
+.edu-score { display: inline-flex; align-items: center; gap: 6px; margin-top: 0.6rem; font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--accent2); background: var(--accent-bg); border: 1px solid var(--accent-border); padding: 3px 10px; border-radius: 3px; }
+ 
+/* SKILLS */
+.skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; }
+.skill-group-title { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--accent2); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.1rem; padding-bottom: 0.65rem; border-bottom: 1px solid var(--border); }
+.skill-item { font-size: 0.85rem; color: var(--muted); padding: 3px 0; }
+ 
+/* CONTACT */
+.contact-title { font-family: 'Fraunces', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.25rem; color: var(--text); }
 .contact-title em { font-style: italic; color: var(--accent2); }
-.contact-desc { font-size: 0.95rem; color: var(--muted); margin-bottom: 2.5rem; font-weight: 300; line-height: 1.8; max-width: 500px; }
-.contact-links { display: flex; flex-direction: column; gap: 0; max-width: 540px; }
+.contact-desc { font-size: 0.9rem; color: var(--muted); margin-bottom: 2.5rem; line-height: 1.85; max-width: 480px; }
+.contact-links { display: flex; flex-direction: column; max-width: 520px; }
 .contact-link { display: flex; align-items: center; gap: 1rem; text-decoration: none; padding: 0.85rem 0; border-bottom: 1px solid var(--border); transition: all 0.18s; }
 .contact-link:hover .contact-link-value { color: var(--accent2); }
-.contact-link:hover { padding-left: 0.5rem; }
-.contact-link-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; width: 80px; }
-.contact-link-value { font-size: 0.9rem; color: var(--text); }
-
-footer { padding: 2.5rem 4rem; text-align: center; font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--muted); letter-spacing: 0.08em; border-top: 1px solid var(--border); }
-
+.contact-link:hover { padding-left: 6px; }
+.contact-link-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; width: 75px; flex-shrink: 0; }
+.contact-link-value { font-size: 0.875rem; color: var(--text); }
+ 
+footer { padding: 2rem 4rem; text-align: center; font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.08em; }
+ 
 @media (max-width: 768px) {
   nav { padding: 1rem 1.5rem; }
   .nav-links { display: none; }
   .hero { padding: 7rem 1.5rem 4rem; }
   section { padding: 4rem 1.5rem; }
-  .hero-stats { gap: 2rem; flex-wrap: wrap; }
-  .exp-top { grid-template-columns: 1fr; }
   .proj-item { grid-template-columns: 1fr; gap: 1rem; }
   .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  .edu-item { grid-template-columns: 1fr; }
   footer { padding: 2rem 1.5rem; }
 }
 </style>
 </head>
 <body>
-
+ 
 <!-- CERT MODAL -->
 <div class="cert-modal" id="certModal" onclick="if(event.target===this)closeCertModal()">
   <div class="cert-modal-inner">
@@ -169,21 +227,28 @@ footer { padding: 2.5rem 4rem; text-align: center; font-family: 'DM Mono', monos
     <div class="cert-modal-info" id="certModalInfo"></div>
   </div>
 </div>
-
+ 
 <nav>
   <div class="nav-logo">Arshath Hameed K</div>
-  <div class="nav-links">
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#patent">Patent</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#contact">Contact</a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#learning">Learning</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#patent">Patent</a>
+      <a href="#certifications">Certs</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <!-- Replace href with your actual resume PDF filename once hosted -->
+    <a href="Arshath_resume.pdf" download class="nav-resume">⬇ Resume</a>
   </div>
 </nav>
-
+ 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">AI / ML Engineer &nbsp;·&nbsp; Tiruchirappalli, Tamil Nadu &nbsp;·&nbsp; Open to work</div>
+    <div class="hero-eyebrow"><span class="status-dot"></span> Available for AI/ML roles &nbsp;·&nbsp; Tiruchirappalli, Tamil Nadu</div>
     <h1>Arshath<br><em>Hameed K</em></h1>
     <p class="hero-sub">Entry-level AI/ML engineer with hands-on experience in <strong>LLM post-training, RLHF pipelines,</strong> and <strong>multi-agent systems.</strong> Co-inventor of a filed patent in multi-agent reinforcement learning for data center optimization.</p>
     <div class="hero-cta">
@@ -198,7 +263,54 @@ footer { padding: 2.5rem 4rem; text-align: center; font-family: 'DM Mono', monos
     </div>
   </div>
 </section>
-
+ 
+<!-- CURRENTLY LEARNING -->
+<section id="learning">
+  <div class="section-inner">
+    <div class="section-header"><span class="section-num">00</span><h2>Currently Learning</h2></div>
+ 
+    <div class="learning-banner">
+      <div class="learning-icon">🔬</div>
+      <div>
+        <div class="learning-label">Active focus</div>
+        <div class="learning-title">Retrieval-Augmented Generation (RAG)</div>
+        <div class="learning-desc">Deepening understanding of RAG pipelines — covering vector databases, embedding models, chunking strategies, retrieval mechanisms, and how to connect them to LLMs for grounded, production-ready applications. Building toward combining RAG with my existing RLHF and multi-agent experience.</div>
+        <div class="learning-tags">
+          <span class="learning-tag">RAG Pipelines</span>
+          <span class="learning-tag">Vector DBs</span>
+          <span class="learning-tag">Embeddings</span>
+          <span class="learning-tag">LangChain</span>
+          <span class="learning-tag">FAISS / ChromaDB</span>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="learning-grid">
+      <div class="learning-card">
+        <div class="lc-status active">● Currently studying</div>
+        <div class="lc-name">RAG Architecture & Vector Search</div>
+        <div class="lc-desc">Document chunking, embedding strategies, FAISS / ChromaDB, retrieval evaluation metrics.</div>
+      </div>
+      <div class="learning-card">
+        <div class="lc-status active">● Currently studying</div>
+        <div class="lc-name">ML Fundamentals (Structured)</div>
+        <div class="lc-desc">Reinforcing Python, PyTorch, and core ML theory to strengthen independent coding confidence.</div>
+      </div>
+      <div class="learning-card">
+        <div class="lc-status next">◌ Up next</div>
+        <div class="lc-name">LLM Fine-tuning (Hands-on)</div>
+        <div class="lc-desc">LoRA / QLoRA fine-tuning, dataset preparation, and evaluation on open-source models.</div>
+      </div>
+      <div class="learning-card">
+        <div class="lc-status next">◌ Up next</div>
+        <div class="lc-name">Agentic AI Systems</div>
+        <div class="lc-desc">Tool use, memory, planning loops — extending multi-agent knowledge from Orca-AI into structured agent frameworks.</div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- EXPERIENCE -->
 <section id="experience">
   <div class="section-inner">
     <div class="section-header"><span class="section-num">01</span><h2>Experience</h2></div>
@@ -235,36 +347,36 @@ footer { padding: 2.5rem 4rem; text-align: center; font-family: 'DM Mono', monos
     </div>
   </div>
 </section>
-
+ 
+<!-- PROJECTS -->
 <section id="projects">
   <div class="section-inner">
     <div class="section-header"><span class="section-num">02</span><h2>Projects</h2></div>
-    <div class="proj-list">
-      <div class="proj-item">
-        <div><div class="proj-num">01 / 03</div><div class="proj-name">Orca-AI — App Generator</div></div>
-        <div>
-          <p class="proj-desc">Multi-agent system that generates full-stack web applications from natural language prompts. A Judge AI agent performs autonomous code refinement, validation, and quality assurance. Real-time WebSocket collaboration for seamless multi-user development.</p>
-          <div class="proj-tags"><span class="proj-tag">Ollama</span><span class="proj-tag">LangChain</span><span class="proj-tag">Llama 3</span><span class="proj-tag">Phi-3</span><span class="proj-tag">FastAPI</span><span class="proj-tag">WebSockets</span></div>
-        </div>
+    <div class="proj-item">
+      <div><div class="proj-num">01 / 03</div><div class="proj-name">Orca-AI — App Generator</div></div>
+      <div>
+        <p class="proj-desc">Multi-agent system that generates full-stack web applications from natural language prompts. A Judge AI agent performs autonomous code refinement, validation, and quality assurance. Real-time WebSocket collaboration for seamless multi-user development.</p>
+        <div class="proj-tags"><span class="proj-tag">Ollama</span><span class="proj-tag">LangChain</span><span class="proj-tag">Llama 3</span><span class="proj-tag">Phi-3</span><span class="proj-tag">FastAPI</span><span class="proj-tag">WebSockets</span></div>
       </div>
-      <div class="proj-item">
-        <div><div class="proj-num">02 / 03</div><div class="proj-name">Smart Interview Proctoring System</div></div>
-        <div>
-          <p class="proj-desc">AI-powered interview platform with YOLOv8-based real-time violation detection, SpeechBrain audio analysis for voice authentication and speech pattern recognition, and WebRTC video streaming with frame-level analytics for instant candidate scoring.</p>
-          <div class="proj-tags"><span class="proj-tag">YOLOv8</span><span class="proj-tag">OpenCV</span><span class="proj-tag">PyTorch</span><span class="proj-tag">SpeechBrain</span><span class="proj-tag">WebRTC</span><span class="proj-tag">FastAPI</span></div>
-        </div>
+    </div>
+    <div class="proj-item">
+      <div><div class="proj-num">02 / 03</div><div class="proj-name">Smart Interview Proctoring System</div></div>
+      <div>
+        <p class="proj-desc">AI-powered interview platform with YOLOv8-based real-time violation detection, SpeechBrain audio analysis for voice authentication, and WebRTC video streaming with frame-level analytics for instant candidate scoring.</p>
+        <div class="proj-tags"><span class="proj-tag">YOLOv8</span><span class="proj-tag">OpenCV</span><span class="proj-tag">PyTorch</span><span class="proj-tag">SpeechBrain</span><span class="proj-tag">WebRTC</span><span class="proj-tag">FastAPI</span></div>
       </div>
-      <div class="proj-item">
-        <div><div class="proj-num">03 / 03</div><div class="proj-name">AI Resume Parser & Matcher</div></div>
-        <div>
-          <p class="proj-desc">End-to-end NLP pipeline using Transformer-based NER for automated resume parsing and semantic candidate matching. Bulk document processing with Google Drive integration built for enterprise-scale recruitment automation.</p>
-          <div class="proj-tags"><span class="proj-tag">Transformers</span><span class="proj-tag">spaCy</span><span class="proj-tag">Flask</span><span class="proj-tag">MongoDB</span><span class="proj-tag">Google Drive API</span><span class="proj-tag">Semantic Search</span></div>
-        </div>
+    </div>
+    <div class="proj-item">
+      <div><div class="proj-num">03 / 03</div><div class="proj-name">AI Resume Parser & Matcher</div></div>
+      <div>
+        <p class="proj-desc">End-to-end NLP pipeline using Transformer-based NER for automated resume parsing and semantic candidate matching. Bulk document processing with Google Drive integration built for enterprise-scale recruitment automation.</p>
+        <div class="proj-tags"><span class="proj-tag">Transformers</span><span class="proj-tag">spaCy</span><span class="proj-tag">Flask</span><span class="proj-tag">MongoDB</span><span class="proj-tag">Google Drive API</span><span class="proj-tag">Semantic Search</span></div>
       </div>
     </div>
   </div>
 </section>
-
+ 
+<!-- PATENT -->
 <section id="patent">
   <div class="section-inner">
     <div class="section-header"><span class="section-num">03</span><h2>Patent</h2></div>
@@ -302,155 +414,153 @@ footer { padding: 2.5rem 4rem; text-align: center; font-family: 'DM Mono', monos
     </div>
   </div>
 </section>
-
+ 
+<!-- CERTIFICATIONS -->
 <section id="certifications">
   <div class="section-inner">
     <div class="section-header"><span class="section-num">04</span><h2>Certifications</h2></div>
     <div class="certs-grid">
-
       <div class="cert-card" id="certAWS">
         <div class="cert-card-header" onclick="toggleCert('certAWS')">
           <div class="cert-issuer">Amazon Web Services</div>
           <div class="cert-name">AWS Certified Cloud Practitioner</div>
-          <div class="cert-meta">Issued: April 5, 2024 &nbsp;·&nbsp; Valid till April 2027</div>
+          <div class="cert-meta">Issued: April 5, 2024 · Valid till April 2027</div>
           <div class="cert-toggle">View details</div>
         </div>
         <div class="cert-body">
-          <div class="cert-detail-row">
-            <div class="cert-detail-label">Validation Number</div>
-            <div class="cert-detail-value">5158f8189a4643f9ba6aba79767853ed</div>
-          </div>
-          <div class="cert-detail-row">
-            <div class="cert-detail-label">How to verify</div>
-            <div class="cert-detail-value">Go to aws.amazon.com/verification and enter the validation number above</div>
-          </div>
-          <button class="cert-btn" onclick="showCertImage('AWS Certified Cloud Practitioner', 'aws')">🖼 View my certificate</button>
+          <div class="cert-detail-row"><div class="cert-detail-label">Validation Number</div><div class="cert-detail-value">5158f8189a4643f9ba6aba79767853ed</div></div>
+          <div class="cert-detail-row"><div class="cert-detail-label">How to verify</div><div class="cert-detail-value">Visit aws.amazon.com/verification and enter the validation number above</div></div>
+          <button class="cert-btn" onclick="showCert('AWS Certified Cloud Practitioner','aws','5158f8189a4643f9ba6aba79767853ed')">🖼 View certificate</button>
         </div>
       </div>
-
       <div class="cert-card" id="certGCP">
         <div class="cert-card-header" onclick="toggleCert('certGCP')">
           <div class="cert-issuer">Google Cloud</div>
           <div class="cert-name">Career Readiness — Associate Cloud Engineer Track</div>
-          <div class="cert-meta">Issued: December 14, 2023 &nbsp;·&nbsp; Never expires</div>
+          <div class="cert-meta">Issued: December 14, 2023 · Never expires</div>
           <div class="cert-toggle">View details</div>
         </div>
         <div class="cert-body">
-          <div class="cert-detail-row">
-            <div class="cert-detail-label">Certificate ID</div>
-            <div class="cert-detail-value">NZUvyEoK</div>
-          </div>
-          <div class="cert-detail-row">
-            <div class="cert-detail-label">Issued by</div>
-            <div class="cert-detail-value">Erin Rifkin, Managing Director — Google Cloud Learning Services</div>
-          </div>
-          <button class="cert-btn" onclick="showCertImage('Google Cloud Career Readiness', 'gcp')">🖼 View my certificate</button>
+          <div class="cert-detail-row"><div class="cert-detail-label">Certificate ID</div><div class="cert-detail-value">NZUvyEoK</div></div>
+          <div class="cert-detail-row"><div class="cert-detail-label">Issued by</div><div class="cert-detail-value">Erin Rifkin, Managing Director — Google Cloud Learning Services</div></div>
+          <button class="cert-btn" onclick="showCert('Google Cloud Career Readiness','gcp','NZUvyEoK')">🖼 View certificate</button>
         </div>
       </div>
-
       <div class="cert-card" id="certSF">
         <div class="cert-card-header" onclick="toggleCert('certSF')">
           <div class="cert-issuer">SmartInternz · AICTE</div>
           <div class="cert-name">Salesforce Administrator Virtual Internship</div>
-          <div class="cert-meta">Completed: December 29, 2023 &nbsp;·&nbsp; 8 weeks</div>
+          <div class="cert-meta">Completed: December 29, 2023 · 8 weeks</div>
           <div class="cert-toggle">View details</div>
         </div>
         <div class="cert-body">
-          <div class="cert-detail-row">
-            <div class="cert-detail-label">Certificate ID</div>
-            <div class="cert-detail-value">SISFVIPAD2023-75321</div>
-          </div>
-          <div class="cert-detail-row">
-            <div class="cert-detail-label">Modules</div>
-            <div class="cert-detail-value">Salesforce Fundamentals · Org Setup · Sales Cloud · Service Cloud · Flow & Chatter · Security · Data Management</div>
-          </div>
-          <button class="cert-btn" onclick="showCertImage('Salesforce Administrator', 'sf')">🖼 View my certificate</button>
+          <div class="cert-detail-row"><div class="cert-detail-label">Certificate ID</div><div class="cert-detail-value">SISFVIPAD2023-75321</div></div>
+          <div class="cert-detail-row"><div class="cert-detail-label">Modules</div><div class="cert-detail-value">Salesforce Fundamentals · Org Setup · Sales Cloud · Service Cloud · Flow & Chatter · Security · Data Management</div></div>
+          <button class="cert-btn" onclick="showCert('Salesforce Administrator','sf','SISFVIPAD2023-75321')">🖼 View certificate</button>
         </div>
       </div>
-
       <div class="cert-card" id="certVdart">
         <div class="cert-card-header" onclick="toggleCert('certVdart')">
           <div class="cert-issuer">Vdart</div>
           <div class="cert-name">On-the-Job Training — AI/ML Industry Project</div>
-          <div class="cert-meta">Completed: February 5, 2026 &nbsp;·&nbsp; 7 months</div>
+          <div class="cert-meta">Completed: February 5, 2026 · 7 months</div>
           <div class="cert-toggle">View details</div>
         </div>
         <div class="cert-body">
-          <div class="cert-detail-row">
-            <div class="cert-detail-label">Duration</div>
-            <div class="cert-detail-value">9th June 2025 – 2nd January 2026</div>
-          </div>
-          <div class="cert-detail-row">
-            <div class="cert-detail-label">Domain</div>
-            <div class="cert-detail-value">AI/ML Industry Project</div>
-          </div>
-          <button class="cert-btn" onclick="showCertImage('Vdart OJT Certificate', 'vdart')">🖼 View my certificate</button>
+          <div class="cert-detail-row"><div class="cert-detail-label">Duration</div><div class="cert-detail-value">9th June 2025 – 2nd January 2026</div></div>
+          <div class="cert-detail-row"><div class="cert-detail-label">Domain</div><div class="cert-detail-value">AI/ML Industry Project</div></div>
+          <button class="cert-btn" onclick="showCert('Vdart OJT Certificate','vdart','')">🖼 View certificate</button>
         </div>
       </div>
-
     </div>
-
-    <div style="margin-top: 2rem; padding: 1rem 1.25rem; background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--muted);">
-      ℹ️ &nbsp; To show your actual certificate images: replace the placeholder image sources in the script below with your uploaded certificate image files (PNG/JPG exports of your PDFs).
+    <p style="margin-top:1.5rem; font-family:'DM Mono',monospace; font-size:0.68rem; color:var(--muted);">
+      ℹ &nbsp;To enable certificate previews: convert your PDFs to JPG, rename them <code style="color:var(--accent2);">aws.jpg · gcp.jpg · salesforce.jpg · vdart.jpg</code> and place them in the same folder as this HTML file.
+    </p>
+  </div>
+</section>
+ 
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-inner">
+    <div class="section-header"><span class="section-num">05</span><h2>Education</h2></div>
+    <div class="edu-grid">
+      <div class="edu-item">
+        <div>
+          <div class="edu-degree">B.E. — Computer Science & Engineering</div>
+          <div class="edu-school">K. Ramakrishnan College of Engineering, Tiruchirappalli</div>
+          <div class="edu-score">CGPA: 8.1 / 10</div>
+        </div>
+        <div class="edu-date">2021 – 2025</div>
+      </div>
+      <div class="edu-item">
+        <div>
+          <div class="edu-degree">Higher Secondary Certificate (HSC)</div>
+          <div class="edu-school">Tamil Nadu State Board</div>
+          <div class="edu-score">88.2%</div>
+        </div>
+        <div class="edu-date">2018 – 2020</div>
+      </div>
+      <div class="edu-item">
+        <div>
+          <div class="edu-degree">Secondary School Leaving Certificate (SSLC)</div>
+          <div class="edu-school">Tamil Nadu State Board</div>
+          <div class="edu-score">85%</div>
+        </div>
+        <div class="edu-date">2017 – 2018</div>
+      </div>
     </div>
   </div>
 </section>
-
+ 
+<!-- SKILLS -->
 <section id="skills">
   <div class="section-inner">
-    <div class="section-header"><span class="section-num">05</span><h2>Skills</h2></div>
+    <div class="section-header"><span class="section-num">06</span><h2>Skills</h2></div>
     <div class="skills-grid">
       <div>
         <div class="skill-group-title">LLMs & AI</div>
-        <div class="skill-list">
-          <div class="skill-item">DeepSeek, Gemini, Claude</div>
-          <div class="skill-item">Llama 3, Phi-3, Ollama</div>
-          <div class="skill-item">RLHF & Reward Modeling</div>
-          <div class="skill-item">Prompt Engineering</div>
-          <div class="skill-item">LLM Fine-Tuning</div>
-          <div class="skill-item">RAG Systems</div>
-        </div>
+        <div class="skill-item">DeepSeek, Gemini, Claude</div>
+        <div class="skill-item">Llama 3, Phi-3, Ollama</div>
+        <div class="skill-item">RLHF & Reward Modeling</div>
+        <div class="skill-item">Prompt Engineering</div>
+        <div class="skill-item">LLM Fine-Tuning</div>
+        <div class="skill-item">RAG (learning)</div>
       </div>
       <div>
         <div class="skill-group-title">Frameworks</div>
-        <div class="skill-list">
-          <div class="skill-item">PyTorch, TensorFlow</div>
-          <div class="skill-item">Hugging Face Transformers</div>
-          <div class="skill-item">LangChain</div>
-          <div class="skill-item">FastAPI, Flask</div>
-          <div class="skill-item">YOLOv8, OpenCV</div>
-          <div class="skill-item">spaCy</div>
-        </div>
+        <div class="skill-item">PyTorch, TensorFlow</div>
+        <div class="skill-item">Hugging Face Transformers</div>
+        <div class="skill-item">LangChain</div>
+        <div class="skill-item">FastAPI, Flask</div>
+        <div class="skill-item">YOLOv8, OpenCV</div>
+        <div class="skill-item">spaCy</div>
       </div>
       <div>
         <div class="skill-group-title">Infrastructure</div>
-        <div class="skill-list">
-          <div class="skill-item">AWS (Certified CCP)</div>
-          <div class="skill-item">Google Cloud (ACE track)</div>
-          <div class="skill-item">MongoDB</div>
-          <div class="skill-item">WebSockets, WebRTC</div>
-          <div class="skill-item">GitHub</div>
-          <div class="skill-item">PowerBI, Excel</div>
-        </div>
+        <div class="skill-item">AWS (Certified CCP)</div>
+        <div class="skill-item">Google Cloud (ACE track)</div>
+        <div class="skill-item">MongoDB</div>
+        <div class="skill-item">WebSockets, WebRTC</div>
+        <div class="skill-item">GitHub</div>
+        <div class="skill-item">PowerBI, Excel</div>
       </div>
       <div>
         <div class="skill-group-title">Domains</div>
-        <div class="skill-list">
-          <div class="skill-item">NLP & Text Generation</div>
-          <div class="skill-item">Computer Vision</div>
-          <div class="skill-item">Multi-Agent Systems</div>
-          <div class="skill-item">Model Evaluation & QA</div>
-          <div class="skill-item">Data Annotation</div>
-          <div class="skill-item">Document Parsing</div>
-        </div>
+        <div class="skill-item">NLP & Text Generation</div>
+        <div class="skill-item">Computer Vision</div>
+        <div class="skill-item">Multi-Agent Systems</div>
+        <div class="skill-item">Model Evaluation & QA</div>
+        <div class="skill-item">Data Annotation</div>
+        <div class="skill-item">Document Parsing</div>
       </div>
     </div>
   </div>
 </section>
-
+ 
+<!-- CONTACT -->
 <section id="contact">
   <div class="section-inner">
-    <div class="section-header"><span class="section-num">06</span><h2>Contact</h2></div>
+    <div class="section-header"><span class="section-num">07</span><h2>Contact</h2></div>
     <div class="contact-title">Open to <em>the right</em> opportunity.</div>
     <p class="contact-desc">Targeting Junior AI Engineer, NLP Engineer, Prompt Engineer, and AI Trainer roles. Based in Tiruchirappalli — open to remote and hybrid.</p>
     <div class="contact-links">
@@ -469,22 +579,21 @@ footer { padding: 2.5rem 4rem; text-align: center; font-family: 'DM Mono', monos
     </div>
   </div>
 </section>
-
+ 
 <footer>Arshath Hameed K &nbsp;·&nbsp; AI/ML Engineer &nbsp;·&nbsp; Tiruchirappalli, Tamil Nadu</footer>
-
+ 
 <script>
 function toggleCert(id) {
-  const card = document.getElementById(id);
-  card.classList.toggle('open');
+  document.getElementById(id).classList.toggle('open');
 }
-
+ 
 const certImages = {
-  aws:   { src: 'aws.jpeg',   info: 'AWS Certified Cloud Practitioner · Valid: April 2024 – April 2027 · ID: 5158f8189a4643f9ba6aba79767853ed' },
+  aws:   { src: 'aws.jpeg',          info: 'AWS Certified Cloud Practitioner · Valid: April 2024 – April 2027 · ID: 5158f8189a4643f9ba6aba79767853ed' },
   gcp:   { src: 'google cloud.jpeg', info: 'Google Cloud Career Readiness · ACE Track · ID: NZUvyEoK' },
-  sf:    { src: 'salesforce.jpeg', info: 'Salesforce Administrator · SmartInternz · AICTE · ID: SISFVIPAD2023-75321' },
-  vdart: { src: 'vdart.jpeg',     info: 'Vdart On-the-Job Training · AI/ML · Jun 2025 – Jan 2026' }
+  sf:    { src: 'salesforce.jpeg',   info: 'Salesforce Administrator · SmartInternz · AICTE · ID: SISFVIPAD2023-75321' },
+  vdart: { src: 'vdart.jpeg',        info: 'Vdart On-the-Job Training · AI/ML · Jun 2025 – Jan 2026' }
 };
-
+ 
 function showCertImage(title, key) {
   const modal = document.getElementById('certModal');
   const body = document.getElementById('certModalBody');
@@ -493,14 +602,16 @@ function showCertImage(title, key) {
   const cert = certImages[key];
   titleEl.textContent = title;
   info.textContent = cert.info;
-  body.innerHTML = '<img src="' + cert.src + '" style="max-width:100%;border-radius:10px;">';
+  body.innerHTML = '<img src="' + cert.src + '" style="width:100%;height:auto;border-radius:10px;">';
   modal.classList.add('show');
 }
-
+ 
+// keep showCert as alias
+function showCert(title, key) { showCertImage(title, key); }
+ 
 function closeCertModal() {
   document.getElementById('certModal').classList.remove('show');
 }
-
 document.addEventListener('keydown', e => { if(e.key === 'Escape') closeCertModal(); });
 </script>
 </body>

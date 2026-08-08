@@ -212,6 +212,52 @@ footer { padding: 2rem 4rem; text-align: center; font-family: 'DM Mono', monospa
   .edu-item { grid-template-columns: 1fr; }
   footer { padding: 2rem 1.5rem; }
 }
+
+/* RECENT WORK SPOTLIGHT */
+.recent-work-block {
+  border: 1px solid var(--accent-border); border-radius: 8px;
+  padding: 2.5rem; background: var(--bg2); position: relative; overflow: hidden;
+}
+.recent-work-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--green);
+  letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.25rem;
+  padding: 3px 10px; border: 1px solid var(--green-border); border-radius: 3px;
+  background: var(--green-bg);
+}
+.recent-work-title {
+  font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 300;
+  line-height: 1.35; margin-bottom: 0.65rem; color: var(--text); max-width: 680px;
+}
+.recent-work-context {
+  font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--muted);
+  margin-bottom: 1.75rem; padding-bottom: 1.75rem; border-bottom: 1px solid var(--border);
+}
+.recent-work-desc {
+  font-size: 0.875rem; color: var(--muted); line-height: 1.85; margin-bottom: 1.75rem; max-width: 760px;
+}
+.recent-work-modules {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+  gap: 0.85rem; margin-bottom: 1.75rem;
+}
+.recent-work-module {
+  background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; padding: 0.9rem;
+}
+.recent-work-module-name { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--accent2); margin-bottom: 0.35rem; }
+.recent-work-module-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
+.recent-work-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1.75rem; }
+.recent-work-tag {
+  font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--accent2);
+  padding: 2px 8px; border: 1px solid var(--accent-border); border-radius: 3px; background: var(--accent-bg);
+}
+.recent-work-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 0.6rem 1.2rem; border-radius: 4px; font-size: 0.78rem;
+  text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase;
+  background: var(--accent-bg); border: 1px solid var(--accent-border); color: var(--accent2);
+  transition: all 0.18s; font-family: 'DM Mono', monospace;
+}
+.recent-work-link:hover { background: rgba(99,102,241,0.2); }
 </style>
 </head>
 <body>
@@ -375,7 +421,49 @@ footer { padding: 2rem 4rem; text-align: center; font-family: 'DM Mono', monospa
     </div>
   </div>
 </section>
- 
+<!-- RECENT WORK -->
+<section id="recent-work">
+  <div class="section-inner">
+    <div class="section-header"><span class="section-num">02.5</span><h2>Recent Work</h2></div>
+    <div class="recent-work-block">
+      <div class="recent-work-badge">● Take-home project · Aug 2026</div>
+      <div class="recent-work-title">Intent Capture & Outbound Activation — GTM Signal Intelligence Pipeline</div>
+      <div class="recent-work-context">Built for ClickPost's AI Engineer Intern hiring process</div>
+      <p class="recent-work-desc">
+        An end-to-end prototype that identifies buying-intent signals for D2C e-commerce brands from public data
+        (review platforms, complaint boards, job postings), scores and ranks accounts using an explainable
+        rule-based heuristic, and generates personalized outbound sequences grounded in the specific signal
+        captured for each account.
+      </p>
+      <div class="recent-work-modules">
+        <div class="recent-work-module">
+          <div class="recent-work-module-name">Signal Capture</div>
+          <div class="recent-work-module-desc">Multi-source research across Trustpilot, BBB, PissedConsumer, ConsumerAffairs — complaint, tech-stack, growth, and hiring signals.</div>
+        </div>
+        <div class="recent-work-module">
+          <div class="recent-work-module-name">Scoring Engine</div>
+          <div class="recent-work-module-desc">Rule-based weighted heuristic combining signal strength, recency decay, and product-fit — fully explainable, not a black box.</div>
+        </div>
+        <div class="recent-work-module">
+          <div class="recent-work-module-name">Outbound Generation</div>
+          <div class="recent-work-module-desc">LLM-generated LinkedIn + email sequences grounded in captured signals, with a post-generation fabrication-detection guard.</div>
+        </div>
+        <div class="recent-work-module">
+          <div class="recent-work-module-name">Multi-Backend LLM</div>
+          <div class="recent-work-module-desc">Three interchangeable backends (Anthropic, Gemini, OpenRouter) to keep the pipeline usable without a paid API key.</div>
+        </div>
+      </div>
+      <div class="recent-work-tags">
+        <span class="recent-work-tag">Python</span>
+        <span class="recent-work-tag">LLM APIs</span>
+        <span class="recent-work-tag">Prompt Engineering</span>
+        <span class="recent-work-tag">GTM Automation</span>
+        <span class="recent-work-tag">Signal Scoring</span>
+      </div>
+      <a href="https://github.com/Arshath4758u/clickpost-ai-engineer-assignment" target="_blank" class="recent-work-link">View on GitHub ↗</a>
+    </div>
+  </div>
+</section>
 <!-- PATENT -->
 <section id="patent">
   <div class="section-inner">

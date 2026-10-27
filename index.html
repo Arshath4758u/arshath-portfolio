@@ -58,6 +58,9 @@ nav {
   pointer-events: none;
 }
 .hero-inner { max-width: 1000px; margin: 0 auto; width: 100%; position: relative; }
+.hero-layout { display: grid; grid-template-columns: 1fr 260px; gap: 4rem; align-items: center; }
+.hero-photo { width: 260px; height: 260px; border-radius: 50%; border: 1px solid var(--accent-border); background: var(--bg2); position: relative; overflow: hidden; justify-self: center; display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-weight: 300; font-size: 4rem; color: var(--accent2); }
+.hero-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 2.5rem; display: flex; align-items: center; gap: 10px; }
 .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); display: inline-block; animation: pulse 2s infinite; }
 @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
@@ -206,6 +209,8 @@ footer { padding: 2rem 4rem; text-align: center; font-family: 'DM Mono', monospa
   nav { padding: 1rem 1.5rem; }
   .nav-links { display: none; }
   .hero { padding: 7rem 1.5rem 4rem; }
+  .hero-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+  .hero-photo { order: -1; width: 180px; height: 180px; font-size: 3rem; justify-self: start; }
   section { padding: 4rem 1.5rem; }
   .proj-item { grid-template-columns: 1fr; gap: 1rem; }
   .skills-grid { grid-template-columns: repeat(2, 1fr); }
@@ -258,6 +263,7 @@ footer { padding: 2rem 4rem; text-align: center; font-family: 'DM Mono', monospa
   transition: all 0.18s; font-family: 'DM Mono', monospace;
 }
 .recent-work-link:hover { background: rgba(99,102,241,0.2); }
+.recent-work-block + .recent-work-block { margin-top: 2rem; }
 </style>
 </head>
 <body>
@@ -287,19 +293,25 @@ footer { padding: 2rem 4rem; text-align: center; font-family: 'DM Mono', monospa
       <a href="#contact">Contact</a>
     </div>
     <!-- Replace href with your actual resume PDF filename once hosted -->
-    <a href="Arshath_resume.pdf" download class="nav-resume">⬇ Resume</a>
+    <a href="Arshath_hameed_k_resume.pdf" download class="nav-resume">⬇ Resume</a>
   </div>
 </nav>
  
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow"><span class="status-dot"></span> Available for AI/ML roles &nbsp;·&nbsp; Tiruchirappalli, Tamil Nadu</div>
-    <h1>Arshath<br><em>Hameed K</em></h1>
-    <p class="hero-sub">Entry-level AI/ML engineer with hands-on experience in <strong>LLM post-training, RLHF pipelines,</strong> and <strong>multi-agent systems.</strong> Co-inventor of a filed patent in multi-agent reinforcement learning for data center optimization.</p>
-    <div class="hero-cta">
-      <a href="mailto:arshathh007@gmail.com" class="btn btn-primary">Get in touch →</a>
-      <a href="https://www.linkedin.com/in/arshath-hameed-k" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
+    <div class="hero-layout">
+      <div>
+        <div class="hero-eyebrow"><span class="status-dot"></span> Available for AI/ML roles &nbsp;·&nbsp; Tiruchirappalli, Tamil Nadu</div>
+        <h1>Arshath<br><em>Hameed K</em></h1>
+        <p class="hero-sub">Entry-level AI/ML engineer with hands-on experience in <strong>LLM post-training, RLHF pipelines,</strong> and <strong>multi-agent systems.</strong> Co-inventor of a filed patent in multi-agent reinforcement learning for data center optimization.</p>
+        <div class="hero-cta">
+          <a href="mailto:arshathh007@gmail.com" class="btn btn-primary">Get in touch →</a>
+          <a href="https://www.linkedin.com/in/arshath-hameed-k" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
+        </div>
+      </div>
+      <!-- Save your photo as arshath.jpg in the same folder as this file -->
+      <div class="hero-photo">AH<img src="arshath.jpg" alt="Arshath Hameed K" onerror="this.remove()"></div>
     </div>
     <div class="hero-stats">
       <div><div class="stat-num">2</div><div class="stat-label">Internships</div></div>
@@ -360,6 +372,22 @@ footer { padding: 2rem 4rem; text-align: center; font-family: 'DM Mono', monospa
 <section id="experience">
   <div class="section-inner">
     <div class="section-header"><span class="section-num">01</span><h2>Experience</h2></div>
+    <div class="exp-item">
+      <div class="exp-top">
+        <div>
+          <div class="exp-role">Language Data Annotator (Tamil)</div>
+          <div class="exp-company">Handshake AI — Remote Contract</div>
+        </div>
+        <div class="exp-date">Oct 2026</div>
+      </div>
+      <div class="exp-tags"><span class="tag">Preference Evaluation</span><span class="tag">RLHF</span><span class="tag">Tamil &amp; Tanglish</span><span class="tag">Written Rationales</span></div>
+      <ul class="exp-bullets">
+        <li>Compared paired AI responses (A/B), rating overall preference and its strength for RLHF-style alignment.</li>
+        <li>Scored responses on completeness, correctness and factuality, instruction following, and tone, flagging hallucinations and missed constraints.</li>
+        <li>Evaluated Tamil and Tanglish (Romanized Tamil) responses for natural register, local terminology, and awkward literal translation.</li>
+        <li>Wrote contrastive rationales quoting evidence from each response, with English glosses.</li>
+      </ul>
+    </div>
     <div class="exp-item">
       <div class="exp-top">
         <div>
@@ -461,6 +489,74 @@ footer { padding: 2rem 4rem; text-align: center; font-family: 'DM Mono', monospa
         <span class="recent-work-tag">Signal Scoring</span>
       </div>
       <a href="https://github.com/Arshath4758u/clickpost-ai-engineer-assignment" target="_blank" class="recent-work-link">View on GitHub ↗</a>
+    </div>
+    <div class="recent-work-block">
+      <div class="recent-work-badge">● Personal project</div>
+      <div class="recent-work-title">Bug Report Enricher — AI Triage Agent</div>
+      <div class="recent-work-context">Built on ActivePieces with GitHub, Gmail and Google Sheets</div>
+      <p class="recent-work-desc">
+        An AI agent that turns vague GitHub issues into structured, developer-ready comments and posts them without touching the original report. Prompt design is the core of it: strict JSON output, labelled inferences, and rules that stop the model from guessing.
+      </p>
+      <div class="recent-work-modules">
+        <div class="recent-work-module">
+          <div class="recent-work-module-name">Structured Comment</div>
+          <div class="recent-work-module-desc">What happened, expected behavior, reproduction steps and environment, with a suggested severity and one line of reasoning.</div>
+        </div>
+        <div class="recent-work-module">
+          <div class="recent-work-module-name">Never-Guess Rules</div>
+          <div class="recent-work-module-desc">Every reproduction step is labelled [INFERRED]. A one-line report gets no invented steps and no severity.</div>
+        </div>
+        <div class="recent-work-module">
+          <div class="recent-work-module-name">Clarifying Email</div>
+          <div class="recent-work-module-desc">Thin reports trigger an email to the maintainer; one click on the link posts the question to the reporter.</div>
+        </div>
+        <div class="recent-work-module">
+          <div class="recent-work-module-name">Duplicates &amp; Alerts</div>
+          <div class="recent-work-module-desc">Flags likely duplicates against past bug summaries and links reports to recent error alerts from a Google Sheet.</div>
+        </div>
+      </div>
+      <div class="recent-work-tags">
+        <span class="recent-work-tag">ActivePieces</span>
+        <span class="recent-work-tag">Prompt Engineering</span>
+        <span class="recent-work-tag">Structured JSON</span>
+        <span class="recent-work-tag">GitHub</span>
+        <span class="recent-work-tag">Gmail</span>
+        <span class="recent-work-tag">Google Sheets</span>
+      </div>
+    </div>
+    <div class="recent-work-block">
+      <div class="recent-work-badge">● Freelance project</div>
+      <div class="recent-work-title">ASI Naturals — Order &amp; Stock Tracker</div>
+      <div class="recent-work-context">Built for a small food-grain business · installable web app (PWA)</div>
+      <p class="recent-work-desc">
+        Replaced Excel sheets and a paper notebook with one shared live database, so everyone works from the same orders, payments and stock.
+      </p>
+      <div class="recent-work-modules">
+        <div class="recent-work-module">
+          <div class="recent-work-module-name">Orders &amp; Profit</div>
+          <div class="recent-work-module-desc">Multi-item orders with real price and profit calculated automatically from a per-kg rate table, at gram-level quantities.</div>
+        </div>
+        <div class="recent-work-module">
+          <div class="recent-work-module-name">Stock</div>
+          <div class="recent-work-module-desc">Purchases with supplier and invoice notes, bulk paste import, and low-stock alerts.</div>
+        </div>
+        <div class="recent-work-module">
+          <div class="recent-work-module-name">Sales Analytics</div>
+          <div class="recent-work-module-desc">Monthly sales table plus charts for top items and profit trend.</div>
+        </div>
+        <div class="recent-work-module">
+          <div class="recent-work-module-name">Data Safety</div>
+          <div class="recent-work-module-desc">CSV import, export and share, and a reset flow that downloads a full backup before deleting anything.</div>
+        </div>
+      </div>
+      <div class="recent-work-tags">
+        <span class="recent-work-tag">JavaScript</span>
+        <span class="recent-work-tag">Supabase</span>
+        <span class="recent-work-tag">PostgreSQL</span>
+        <span class="recent-work-tag">Chart.js</span>
+        <span class="recent-work-tag">PWA</span>
+        <span class="recent-work-tag">Netlify</span>
+      </div>
     </div>
   </div>
 </section>
@@ -640,6 +736,7 @@ footer { padding: 2rem 4rem; text-align: center; font-family: 'DM Mono', monospa
         <div class="skill-item">Model Evaluation & QA</div>
         <div class="skill-item">Data Annotation</div>
         <div class="skill-item">Document Parsing</div>
+        <div class="skill-item">Tamil Language Evaluation</div>
       </div>
     </div>
   </div>
